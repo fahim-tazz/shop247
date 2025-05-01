@@ -1,0 +1,252 @@
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set default font and background for the body */
+body {
+  /* font-family: Arial, sans-serif; */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", "Inter", "SF Pro Display", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 10vh;
+  border-bottom: 0.5px solid lightgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 20px;
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.1);
+}
+
+.logoSection {
+  width: 7.5%;
+  padding: 0px 20px;
+}
+
+.logo {
+  height: 45px;
+}
+
+.searchContainer {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5px 10px;
+  /* border: 2px solid green; */
+  border-left: 2px solid rgb(247, 248, 249);
+  position: relative;
+}
+
+#searchIcon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 25px;
+  pointer-events: none; /* allow clicking through the icon into input */
+  opacity: 0.3;
+}
+
+.searchBox {
+  flex: 1;
+  height: 100%;
+  border: none;
+  font-size: 1rem;
+  padding: 20px 10px;
+  padding-left: 45px;
+  caret-color: hsl(23, 0%, 60%);
+}
+
+.searchBox:focus {
+  outline: none;
+}
+
+.searchButton {
+  flex: 1;
+}
+
+.profileContainer {
+  width: 15%;
+  height: 100%;
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3%;
+  padding: 10px 10px;
+}
+
+#userAvatar {
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#userName {
+  font-size: 1rem;
+  color: rgb(100, 102, 118);
+  font-weight: 600;
+}
+
+main {
+  height: 90vh;
+  padding: 40px;
+  /* border: 2px solid blue; */
+  background-color: rgb(247, 248, 249);
+  padding: 3% 6%;
+}
+
+.kanbanContainer {
+  display: grid;
+  grid-template: 100% / repeat(3, 1fr);
+  gap: 40px;
+  /* border: 2px solid green; */
+  height: 100%;
+}
+
+.kanbanColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* border: 2px solid red; */
+  gap: 20px;
+}
+
+.columnHeader {
+  flex-shrink: 0;
+  font-weight: 500;
+  color: rgb(30, 31, 40);
+}
+
+.kanbanColumn > h2 {
+  align-self: baseline;
+  overflow-y: auto;
+}
+
+.kanbanCard {
+  width: 100%;
+  height: 160px;
+  flex: 0 0 auto;
+  background-color: white;
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 3fr auto;
+  gap: 10px;
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.kanbanCard:hover {
+  background-color: hsl(0, 0%, 98%);
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.kanbanCard:active {
+  transform: scale(1.01);
+}
+
+.cardTitle {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgb(86, 89, 109);
+  font-weight: 500;
+}
+.cardParagraph {
+  grid-column: 1 / span 2;
+  grid-row: 2 / 3;
+  color: rgb(172, 172, 183);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.cardAvatar {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  border-radius: 50%;
+  background-color: red;
+  justify-self: left;
+  align-self: center;
+  width: 25px;
+  height: 25px;
+  /* for child element i.e. text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.65rem;
+}
+
+.avatarLightBlue {
+  background-color: rgb(104, 202, 246);
+}
+
+.avatarMagenta {
+  background-color: rgb(180, 65, 242);
+}
+
+.avatarBlue {
+  background-color: rgb(80, 143, 243);
+}
+
+.avatarDarkMagenta {
+  background-color: rgb(137, 93, 246);
+}
+
+.cardTimestamp {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  justify-self: right;
+  align-self: center;
+  font-size: 0.9rem;
+}
+
+.past {
+  color: rgb(220, 65, 71);
+}
+
+.present {
+  color: rgb(137, 93, 246);
+}
+
+.future {
+  color: rgb(119, 213, 122);
+}
+
+.old {
+  color: rgb(177, 183, 195);
+}
+/* Placeholder color within textboxes */
+::placeholder {
+  color: hsla(0, 0%, 70%, 0.651);
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  /* Edge 12 -18 */
+  color: hsl(23, 0%, 70%);
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="body">
+    <header>
+      <div class="logoSection">
+        <img class="logo" src="assets/apple_logo.svg" />
+      </div>
+      <div class="searchContainer">
+        <img id="searchIcon" src="assets/magnify.svg" alt="" />
+        <input type="text" class="searchBox" placeholder="Search for..." />
+      </div>
+      <div class="profileContainer">
+        <img id="userAvatar" src="assets/avatar.png" alt="User profile pic" />
+        <p id="userName">Analyst User</p>
+      </div>
+    </header>
+    <main>
+      <div class="kanbanContainer">
+        <div class="kanbanColumn">
+          <h2 class="columnHeader">Backlog</h2>
+          <div class="kanbanCard">
+            <h4 class="cardTitle">Complete project setup</h4>
+            <p class="cardParagraph">
+              Initialize repository, set up basic folder structure, and
+              configure build tools and linters for the new project.
+            </p>
+            <div class="cardAvatar avatarLightBlue">FT</div>
+            <p class="cardTimestamp future">May 5</p>
+          </div>
+          <div class="kanbanCard">
+            <h4 class="cardTitle">Design wireframes</h4>
+            <p class="cardParagraph">
+              Draft initial low-fidelity wireframes for the user onboarding
+              screens to discuss with the team.
+            </p>
+            <div class="cardAvatar avatarMagenta">LS</div>
+            <p class="cardTimestamp past">Two days ago</p>
+          </div>
+          <div class="kanbanCard">
+            <h4 class="cardTitle">Research authentication flows</h4>
+            <p class="cardParagraph">
+              Look into best practices for passwordless authentication and
+              two-factor authentication.
+            </p>
+            <div class="cardAvatar avatarBlue">LJ</div>
+            <!-- <p class="cardTimestamp">2 days ago</p> -->
+          </div>
+        </div>
+        <div class="kanbanColumn">
+          <h2 class="columnHeader">Todo</h2>
+          <div class="kanbanCard">
+            <h4 class="cardTitle">Implement search functionality</h4>
+            <p class="cardParagraph">
+              Integrate search bar with backend API to enable keyword-based
+              search on the dashboard across multiple datasets.
+            </p>
+            <div class="cardAvatar avatarDarkMagenta">SK</div>
+            <p class="cardTimestamp present">Today</p>
+          </div>
+          <div class="kanbanCard">
+            <h4 class="cardTitle">Optimize image loading</h4>
+            <p class="cardParagraph">
+              Apply lazy loading and compression techniques to improve page load
+              times, especially for mobile users.
+            </p>
+            <div class="cardAvatar avatarLightBlue">FT</div>
+            <p class="cardTimestamp future">In two days</p>
+          </div>
+          <div class="kanbanCard">
+            <h4 class="cardTitle">Set up notifications system</h4>
+            <p class="cardParagraph">
+              Create initial backend routes and database schema for user
+              notification preferences.
+            </p>
+            <div class="cardAvatar avatarMagenta">SK</div>
+            <p class="cardTimestamp future">July 21</p>
+          </div>
+        </div>
+        <div class="kanbanColumn">
+          <h2 class="columnHeader">Done</h2>
+          <div class="kanbanCard">
+            <h4 class="cardTitle">Fix navbar responsiveness</h4>
+            <p class="cardParagraph">
+              Resolve issues where the navigation bar breaks layout on tablet
+              viewports and smaller mobile screens.
+            </p>
+            <div class="cardAvatar avatarBlue">RJ</div>
+          </div>
+          <div class="kanbanCard">
+            <h4 class="cardTitle">Write initial API documentation</h4>
+            <p class="cardParagraph">
+              Draft basic documentation outlining the REST API endpoints,
+              request/response formats, and authentication mechanisms.
+            </p>
+            <div class="cardAvatar avatarDarkMagenta">OM</div>
+            <p class="cardTimestamp old">Last Tuesday</p>
+          </div>
+          <div class="kanbanCard">
+            <h4 class="cardTitle">Update color scheme</h4>
+            <p class="cardParagraph">
+              Adjust primary and secondary color tokens based on new brand
+              guidelines issued by marketing.
+            </p>
+            <div class="cardAvatar avatarLightBlue">OR</div>
+            <p class="cardTimestamp old">Last month</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
