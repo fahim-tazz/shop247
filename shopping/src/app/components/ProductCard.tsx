@@ -28,13 +28,13 @@ export default function ProductCard({ product }: Props) {
         // height={100}
         alt="Product image"
       />
-      <div className="text-sm border-0 border-pink-500 w-full px-2 h-md overflow-hidden text-ellipsis line-clamp-2">
+      <div className="text-sm border-0 border-pink-500 w-full px-2 h-[2.5rem] overflow-hidden text-ellipsis line-clamp-2">
         {product.name}
       </div>
-      <div className="text-lg border-0 border-pink-500 w-full px-2 font-semibold">
+      <div className="text-lg border-0 border-pink-500 w-full px-2 pt-1 font-semibold">
         ${product.price}
       </div>
-      <div className="border-0 border-blue-500 flex flex-row justify-between w-full p-2 text-gray-500">
+      <div className="border-0 border-blue-500 flex flex-row justify-between w-full px-2 pb-2 text-gray-500">
         <div className="text-xs border-0 border-pink-500">Singapore</div>
         <div className="text-xs border-0 border-pink-500 flex flex-row items-center p-0 gap-[2px]">
           4.8
