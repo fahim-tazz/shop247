@@ -8,6 +8,7 @@ import { setProducts } from "@/redux/productSlice"; // optional cache
 import Image from "next/image";
 import { CartEntry } from "@/app/types/cartEntry";
 import { setCart } from "@/redux/cartSlice";
+import ReviewStarIcon from "@/assets/star.svg";
 
 import toast from "react-hot-toast";
 
@@ -100,14 +101,32 @@ export default function ProductPage() {
 
       {/* Info section */}
       <div className="flex-1 flex flex-col gap-4">
-        <h1 className="text-2xl font-bold">{product.title}</h1>
+        <span className="flex flex-row gap-4 items-center">
+          <h1 className="text-2xl font-bold">{product.title}</h1>
+        </span>
         <p className="text-xl font-semibold text-orange-600">
           ${product.price.toFixed(2)}
         </p>
+        {/* Rating */}
+        <div className="flex flex-row items-center gap-1 text-sm text-gray-600">
+          This item is rated
+          <span className="font-medium">{product.rating.toFixed(1)}</span>
+          <ReviewStarIcon className="h-4 w-4 text-yellow-500 mb-0.5" />
+        </div>
 
         {/* Delivery Info */}
         <div className="text-sm text-gray-600">
-          Get it by <span className="font-medium">Tuesday, May 7</span>
+          Get it by{" "}
+          <span className="font-medium">
+            {new Date(Date.now() + 4 * 24 * 60 * 60 * 1000).toLocaleDateString(
+              "en-US",
+              {
+                weekday: "long",
+                month: "long",
+                day: "numeric",
+              }
+            )}
+          </span>
         </div>
 
         <div className="flex items-center gap-2">
