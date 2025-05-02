@@ -26,7 +26,7 @@ export default function Header({}: Props) {
   const router = useRouter();
 
   return (
-    <div className="w-full h-full border-b-[0.5px] border-b-gray-300 shadow-sm flex flex-row justify-between items-center p-4 gap-8 ">
+    <div className="w-full h-full border-b-[0.5px] border-b-gray-300 shadow-sm flex flex-row justify-between items-center p-4 gap-8 bg-white">
       <div
         onClick={() => router.push("/")}
         className="cursor-pointer flex-[1] border-0 border-green-500 h-full flex flex-row justify-center items-center text-2xl font-bold"
