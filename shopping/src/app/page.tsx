@@ -15,6 +15,7 @@ import {
 export default function Home() {
   const products = useAppSelector((state) => state.products.all);
   const errorState = useAppSelector((state) => state.products.error);
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -43,8 +44,8 @@ export default function Home() {
           let minPrice = 100000;
           let maxPrice = 0;
           for (const product of prods) {
-            categoryRecord[product.category] = true;
-            originRecord[product.origin] = true;
+            categoryRecord[product.category] = false;
+            originRecord[product.origin] = false;
             minPrice = Math.min(minPrice, product.price);
             maxPrice = Math.max(maxPrice, product.price);
           }
@@ -60,7 +61,8 @@ export default function Home() {
           dispatch(setError("Could not fetch."));
         });
     }
-  });
+  }, []);
+
   return (
     <div className="flex-1 flex flex-row p-0 m-0 border-0 border-blue-800 py-0">
       <div className="flex-1 grid grid-cols-1 auto-rows-min py-2 px-2 border-r-[0px] border-r-gray-300">
