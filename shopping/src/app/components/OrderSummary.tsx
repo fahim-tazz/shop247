@@ -11,14 +11,8 @@ export default function OrderSummary({}: Props) {
     (sum, { product, quantity }) => sum + product.price * quantity,
     0
   );
-
-  //   const [subtotal, setSubtotal] = useState(
-  //     Object.values(cart).reduce(
-  //       (sum, { product, quantity }) => sum + product.price * quantity,
-  //       0
-  //     )
   const gst = subtotal * 0.09;
-  const deliveryFee = 2.99;
+  const deliveryFee = subtotal > 0 ? 2.99 : 0;
   const total = subtotal + gst + deliveryFee;
 
   return (
