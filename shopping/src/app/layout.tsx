@@ -1,5 +1,8 @@
+"use client";
 import Header from "./components/Header";
 import "./globals.css";
+import { Provider } from "react-redux";
+import { store } from "@/redux/store";
 
 export default function RootLayout({
   children,
@@ -8,10 +11,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex flex-col w-full h-[80px]">
-        <Header />
-        {children}
-      </body>
+      <Provider store={store}>
+        <body className="flex flex-col w-full h-[80px] bg-gray-100">
+          <Header />
+          {children}
+        </body>
+      </Provider>
     </html>
   );
 }
