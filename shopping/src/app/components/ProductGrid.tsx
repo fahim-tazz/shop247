@@ -26,23 +26,22 @@ export default function ProductGrid({}: Props) {
   //   image: "An image of iphone",
   // };
 
-  console.log("Products found by productgrid:" + products);
-  console.log(products);
+  const isEmptyList = products.length == 0;
   return (
     <div className="flex-[5] grid [grid-template-columns:repeat(auto-fill,_minmax(180px,_1fr))] auto-rows-[280px] gap-y-4 pl-4 pr-0 py-4 border-0 border-red-700">
-      {loadingState ? (
+      {/* Loading state while fetching */}
+      {loadingState && (
         <>Loading</> //TODO: Style this
-      ) : (
-        products.map((prod) => <ProductCard key={prod.id} product={prod} />)
       )}
-      {/* // <>
-        <ProductCard product={p1}></ProductCard>
-<ProductCard product={p1}></ProductCard>
-<ProductCard product={p1}></ProductCard>
-   <ProductCard product={p2}></ProductCard>
-<ProductCard product={p1}></ProductCard>
-   <ProductCard product={p1}></ProductCard>
- </> */}
+      {/* Fetched, no products found: */}
+      {!loadingState && isEmptyList && <>No products found</>}
+
+      {/* Fetched, products found: */}
+      {!loadingState &&
+        !isEmptyList &&
+        products
+          .slice(0, -1)
+          .map((prod) => <ProductCard key={prod.id} product={prod} />)}
     </div>
   );
 }
