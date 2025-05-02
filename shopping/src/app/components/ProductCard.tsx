@@ -5,9 +5,6 @@ import Image from "next/image";
 
 import { useRouter } from "next/navigation";
 
-// Dummy image
-import iphoneImage from "@/assets/iphone.png";
-
 import ReviewStarIcon from "@/assets/star.svg";
 
 type Props = {
@@ -19,7 +16,7 @@ export default function ProductCard({ product }: Props) {
   return (
     <div
       className="w-[180px] border-[1px] border-gray-300 rounded-[2px] flex flex-col justify-between items-center gap-0 bg-white cursor-pointer hover:border-[3px] hover:border-orange-600 p-[2px] hover:p-[0px] transition-colors duration-200 active:scale-99"
-      onClick={() => router.push("/products/{id}")}
+      onClick={() => router.push(`/products/${product.id}`)}
     >
       <div className="relative w-[180px] h-[140px]">
         <Image
