@@ -49,7 +49,10 @@ export default function Header({}: Props) {
         </button>
       </div>
       <div className="flex-[2] h-full flex flex-row items-center justify-start pl-4">
-        <CartIcon className="h-[52px] w-[52px] text-gray-600 hover:bg-gray-200 transition-all duration-200 rounded-[50%] p-2 pr-0 pl-0 active:scale-95 active:text-gray-700" />
+        <CartIcon
+          onClick={() => router.push("/cart")}
+          className="h-[52px] w-[52px] text-gray-600 hover:bg-gray-200 transition-all duration-200 rounded-[50%] p-2 pr-0 pl-0 active:scale-95 active:text-gray-700"
+        />
       </div>
     </div>
   );
