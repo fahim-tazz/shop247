@@ -6,6 +6,11 @@ import axios from "axios";
 
 import { setError, setProducts } from "@/redux/productSlice";
 import { useAppDispatch, useAppSelector } from "@/redux";
+import {
+  setCategoryFilter,
+  setOriginFilter,
+  setMinMaxPriceRange,
+} from "@/redux/filterSlice";
 
 export default function Home() {
   const products = useAppSelector((state) => state.products.all);
@@ -13,15 +18,41 @@ export default function Home() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log("length of prods before: " + products.length);
-    // console.log(loadingState);
     if (!errorState && products.length == 0) {
       axios
         .get("https://fakestoreapi.com/products")
         .then((response) => {
-          const prods = response.data;
+          let prods = response.data;
+          // Simulate ratings and country of origin randomly
+          prods = prods.map((prod) => {
+            const origins = ["China", "Singapore", "Korea", "Hong Kong"];
+            const randomOrigin =
+              origins[Math.round(Math.random() * (origins.length - 1))];
+            const randomRating = (Math.random() * (5 - 3) + 3).toFixed(1);
+            return {
+              ...prod,
+              origin: randomOrigin,
+              rating: parseFloat(randomRating),
+            };
+          });
           console.log(prods);
           dispatch(setProducts(prods));
+
+          const categoryRecord: Record<string, boolean> = {};
+          const originRecord: Record<string, boolean> = {};
+          let minPrice = 100000;
+          let maxPrice = 0;
+          for (const product of prods) {
+            categoryRecord[product.category] = true;
+            originRecord[product.origin] = true;
+            minPrice = Math.min(minPrice, product.price);
+            maxPrice = Math.max(maxPrice, product.price);
+          }
+
+          // Dispatch category filter to Redux
+          dispatch(setCategoryFilter(categoryRecord));
+          dispatch(setOriginFilter(originRecord));
+          dispatch(setMinMaxPriceRange([minPrice, maxPrice]));
         })
         .catch((error) => {
           console.log("Error occured when fetching from FakeStoreAPI:");
@@ -29,8 +60,6 @@ export default function Home() {
           dispatch(setError("Could not fetch."));
         });
     }
-    console.log("length of prods after: " + products.length);
-    // console.log(loadingState);
   });
   return (
     <div className="flex-1 flex flex-row p-0 m-0 border-0 border-blue-800 py-0">

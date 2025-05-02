@@ -36,9 +36,9 @@ export default function ProductCard({ product }: Props) {
         ${product.price.toFixed(2)}
       </div>
       <div className="border-0 border-blue-500 flex flex-row justify-between w-full px-2 pb-2 text-gray-500">
-        <div className="text-xs border-0 border-pink-500">Singapore</div>
+        <div className="text-xs border-0 border-pink-500">{product.origin}</div>
         <div className="text-xs border-0 border-pink-500 flex flex-row items-center p-0 gap-[2px]">
-          4.8
+          {product.rating.toFixed(1)}
           <ReviewStarIcon className="h-[10px] text-yellow-500" />
         </div>
       </div>

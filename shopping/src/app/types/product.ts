@@ -5,4 +5,6 @@ export type Product = {
   description: string;
   category: string;
   image: string; //TODO: Change type as needed
+  origin: string;
+  rating: number;
 };
