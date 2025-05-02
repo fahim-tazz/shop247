@@ -1,32 +1,48 @@
 "use client";
+import { useAppDispatch, useAppSelector } from "@/redux";
+import { setCategoryFilter, setOriginFilter } from "@/redux/filterSlice";
 import React, { useEffect, useState } from "react";
 
 type Props = {
-  category: string;
+  title: string;
+  filterKey: string;
 };
 
-export default function CategoricalFilter({ category }: Props) {
-  const [attributes, setAttributes] = useState<
-    Record<
-      "Kitchen" | "Furniture" | "Electronics" | "Car" | "Food" | "Toys",
-      boolean
-    >
-  >({
-    Kitchen: true,
-    Furniture: true,
-    Electronics: true,
-    Car: true,
-    Food: true,
-    Toys: true,
-  });
+export default function CategoricalFilter({ title, filterKey }: Props) {
+  // const [attributes, setAttributes] = useState<
+  //   Record<
+  //     "Kitchen" | "Furniture" | "Electronics" | "Car" | "Food" | "Toys",
+  //     boolean
+  //   >
+  // >({
+  //   Kitchen: true,
+  //   Furniture: true,
+  //   Electronics: true,
+  //   Car: true,
+  //   Food: true,
+  //   Toys: true,
+  // });
 
-  useEffect(() => {
-    console.log(attributes);
-  }, [attributes]);
+  // useEffect(() => {
+  //   console.log(attributes);
+  // }, [attributes]);
 
+  const dispatch = useAppDispatch();
+
+  const attributes = useAppSelector((state) =>
+    filterKey === "category" ? state.filters.category : state.filters.origin
+  );
+
+  const setAttributes = (updated: Record<string, boolean>) => {
+    if (filterKey === "category") {
+      dispatch(setCategoryFilter(updated));
+    } else {
+      dispatch(setOriginFilter(updated));
+    }
+  };
   return (
     <div className=" border-b-[1px] border-gray-400 flex flex-col py-3 px-2 gap-1">
-      <h3 className="text-md text-gray-600 font-semibold">{category}</h3>
+      <h3 className="text-md text-gray-600 font-semibold">{title}</h3>
       <div className="grid grid-cols-1 px-1 gap-1.5">
         {Object.entries(attributes)
           .slice(0, 5)
@@ -37,10 +53,10 @@ export default function CategoricalFilter({ category }: Props) {
                 type="checkbox"
                 checked={isChecked}
                 onChange={(e) =>
-                  setAttributes((prev) => ({
-                    ...prev,
+                  setAttributes({
+                    ...attributes,
                     [name]: e.target.checked,
-                  }))
+                  })
                 }
               />
               <label className="text-sm truncate">{name}</label>

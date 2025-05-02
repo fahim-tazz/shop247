@@ -1,6 +1,5 @@
 "use client";
 import { useEffect } from "react";
-import CategoricalFilter from "./components/CategoricalFilter";
 import ProductGrid from "./components/ProductGrid";
 import axios from "axios";
 
@@ -11,6 +10,8 @@ import {
   setOriginFilter,
   setMinMaxPriceRange,
 } from "@/redux/filterSlice";
+import FilterBar from "./components/FilterBar";
+import { Product } from "./types/product";
 
 export default function Home() {
   const products = useAppSelector((state) => state.products.all);
@@ -34,6 +35,12 @@ export default function Home() {
               ...prod,
               origin: randomOrigin,
               rating: parseFloat(randomRating),
+              category: prod.category
+                .split(" ")
+                .map(
+                  (word: string) => word.charAt(0).toUpperCase() + word.slice(1)
+                )
+                .join(" "),
             };
           });
           console.log(prods);
@@ -43,7 +50,7 @@ export default function Home() {
           const originRecord: Record<string, boolean> = {};
           let minPrice = 100000;
           let maxPrice = 0;
-          for (const product of prods) {
+          for (const product of prods as Product[]) {
             categoryRecord[product.category] = false;
             originRecord[product.origin] = false;
             minPrice = Math.min(minPrice, product.price);
@@ -65,10 +72,7 @@ export default function Home() {
 
   return (
     <div className="flex-1 flex flex-row p-0 m-0 border-0 border-blue-800 py-0">
-      <div className="flex-1 grid grid-cols-1 auto-rows-min py-2 px-2 border-r-[0px] border-r-gray-300">
-        <CategoricalFilter category="Product Category" />
-        <CategoricalFilter category="Origin Country" />
-      </div>
+      <FilterBar />
       <ProductGrid />
     </div>
   );
