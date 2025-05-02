@@ -21,18 +21,19 @@ export default function ProductCard({ product }: Props) {
       className="w-[180px] border-[1px] border-gray-300 rounded-[2px] flex flex-col justify-between items-center gap-0 bg-white cursor-pointer hover:border-[3px] hover:border-orange-600 p-[2px] hover:p-[0px] transition-colors duration-200 active:scale-99"
       onClick={() => router.push("/products/{id}")}
     >
-      <Image
-        className="border-0 border-pink-500"
-        src={iphoneImage}
-        width={180}
-        // height={100}
-        alt="Product image"
-      />
+      <div className="relative w-[180px] h-[140px]">
+        <Image
+          src={product.image}
+          alt="Product image"
+          fill
+          className="object-contain p-4"
+        />
+      </div>
       <div className="text-sm border-0 border-pink-500 w-full px-2 h-[2.5rem] overflow-hidden text-ellipsis line-clamp-2">
-        {product.name}
+        {product.title}
       </div>
       <div className="text-lg border-0 border-pink-500 w-full px-2 pt-1 font-semibold">
-        ${product.price}
+        ${product.price.toFixed(2)}
       </div>
       <div className="border-0 border-blue-500 flex flex-row justify-between w-full px-2 pb-2 text-gray-500">
         <div className="text-xs border-0 border-pink-500">Singapore</div>
