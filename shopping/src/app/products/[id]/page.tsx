@@ -32,8 +32,13 @@ export default function ProductPage() {
               price: fetched.price,
               description: fetched.description,
               image: fetched.image,
-              origin: "Singapore", // fallback or derived
-              rating: 4.6, // fallback or mock
+              category: fetched.category
+                .split(" ")
+                .map(
+                  (word: string) => word.charAt(0).toUpperCase() + word.slice(1)
+                ),
+              origin: "Singapore", // Dummy attribute
+              rating: 4.6, // Dummy attribute
             };
 
             setProduct(product);
