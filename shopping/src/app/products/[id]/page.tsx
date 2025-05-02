@@ -9,6 +9,8 @@ import Image from "next/image";
 import { CartEntry } from "@/app/types/cartEntry";
 import { setCart } from "@/redux/cartSlice";
 
+import toast from "react-hot-toast";
+
 export default function ProductPage() {
   const params = useParams();
   const productId = parseInt(params.id as string);
@@ -45,7 +47,11 @@ export default function ProductPage() {
 
     dispatch(setCart(newCart));
     setQuantity(1);
+    toast.success("Added to cart!", {
+      duration: 1500,
+    });
   };
+
   useEffect(() => {
     if (!reduxProduct) {
       // Fetch from API
