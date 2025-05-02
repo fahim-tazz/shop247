@@ -26,15 +26,15 @@ export default function ProductCard({ product }: Props) {
           className="object-contain p-4"
         />
       </div>
-      <div className="text-sm border-0 border-pink-500 w-full px-2 h-[2.5rem] overflow-hidden text-ellipsis line-clamp-2">
+      <div className="text-sm w-full px-2 h-[2.5rem] overflow-hidden text-ellipsis line-clamp-2 font-medium text-gray-600">
         {product.title}
       </div>
-      <div className="text-lg border-0 border-pink-500 w-full px-2 pt-1 font-semibold">
+      <div className="text-lg w-full px-2 pt-1 font-bold text-gray-800">
         ${product.price.toFixed(2)}
       </div>
-      <div className="border-0 border-blue-500 flex flex-row justify-between w-full px-2 pb-2 text-gray-500">
-        <div className="text-xs border-0 border-pink-500">{product.origin}</div>
-        <div className="text-xs border-0 border-pink-500 flex flex-row items-center p-0 gap-[2px]">
+      <div className="border-0 border-blue-500 flex flex-row justify-between w-full px-2 pb-2 text-gray-500 font-light">
+        <div className="text-xs ">{product.origin}</div>
+        <div className="text-xs  flex flex-row items-center p-0 gap-[2px]">
           {product.rating.toFixed(1)}
           <ReviewStarIcon className="h-[10px] text-yellow-500" />
         </div>

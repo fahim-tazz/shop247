@@ -9,24 +9,6 @@ type Props = {
 };
 
 export default function CategoricalFilter({ title, filterKey }: Props) {
-  // const [attributes, setAttributes] = useState<
-  //   Record<
-  //     "Kitchen" | "Furniture" | "Electronics" | "Car" | "Food" | "Toys",
-  //     boolean
-  //   >
-  // >({
-  //   Kitchen: true,
-  //   Furniture: true,
-  //   Electronics: true,
-  //   Car: true,
-  //   Food: true,
-  //   Toys: true,
-  // });
-
-  // useEffect(() => {
-  //   console.log(attributes);
-  // }, [attributes]);
-
   const dispatch = useAppDispatch();
 
   const attributes = useAppSelector((state) =>
@@ -59,7 +41,9 @@ export default function CategoricalFilter({ title, filterKey }: Props) {
                   })
                 }
               />
-              <label className="text-sm truncate">{name}</label>
+              <label className="text-sm font-semibold text-gray-700 truncate">
+                {name}
+              </label>
             </div>
           ))}
       </div>

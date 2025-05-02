@@ -102,7 +102,7 @@ export default function ProductPage() {
       {/* Info section */}
       <div className="flex-1 flex flex-col gap-4">
         <span className="flex flex-row gap-4 items-center">
-          <h1 className="text-2xl font-bold">{product.title}</h1>
+          <h1 className="text-2xl font-bold text-gray-800">{product.title}</h1>
         </span>
         <p className="text-xl font-semibold text-orange-600">
           ${product.price.toFixed(2)}
@@ -130,9 +130,7 @@ export default function ProductPage() {
         </div>
 
         <div className="flex items-center gap-2">
-          <label className="text-sm font-medium" htmlFor="quantity">
-            Quantity:
-          </label>
+          <label className="text-sm font-medium text-gray-700">Quantity:</label>
           <div className="flex items-center border border-gray-300 rounded overflow-hidden">
             <button
               className="px-2 py-1 text-sm bg-gray-100 hover:bg-gray-200 active:text-xs transition-all duration-150"
@@ -159,7 +157,9 @@ export default function ProductPage() {
 
         {/* Description */}
         <div>
-          <h2 className="text-lg font-semibold mt-4 mb-2">Description</h2>
+          <h2 className="text-lg font-semibold mt-4 mb-2 text-gray-900">
+            Description
+          </h2>
           <p className="text-sm text-gray-700">{product.description}</p>
         </div>
       </div>
