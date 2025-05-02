@@ -25,7 +25,7 @@ export default function Home() {
         .get("https://fakestoreapi.com/products")
         .then((response) => {
           let prods = response.data;
-          // Simulate ratings and country of origin randomly
+          // simulate ratings and country of origin randomly
           prods = prods.map((prod) => {
             const origins = ["China", "Singapore", "Korea", "Hong Kong"];
             const randomOrigin =
@@ -57,7 +57,7 @@ export default function Home() {
             maxPrice = Math.max(maxPrice, product.price);
           }
 
-          // Dispatch category filter to Redux
+          // dispatch category filter to Redux
           dispatch(setCategoryFilter(categoryRecord));
           dispatch(setOriginFilter(originRecord));
           dispatch(setMinMaxPriceRange([minPrice, maxPrice]));
