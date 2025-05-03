@@ -16,24 +16,6 @@ export default function CartPage({}: Props) {
   );
   const dispatch = useAppDispatch();
 
-  const handleUpdateCart = () => {
-    const id = product!.id;
-    const newCart = { ...cart };
-
-    if (newCart[id]) {
-      newCart[id] = {
-        ...newCart[id],
-        quantity: newCart[id].quantity + quantity,
-      };
-    } else {
-      newCart[id] = {
-        product: product!,
-        quantity,
-      };
-    }
-
-    dispatch(setCart(newCart));
-  };
   return (
     <div className="flex flex-col md:flex-row gap-6 p-6">
       {/* Left Side: Scrollable Cart Items */}
