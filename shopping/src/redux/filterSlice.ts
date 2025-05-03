@@ -42,7 +42,7 @@ const filtersSlice = createSlice({
     setPriceRangeFilter(state, action: PayloadAction<[number, number]>) {
       state.chosenPriceRange = action.payload;
     },
-    setLastSearchQuery(state, action: PayloadAction<string>) {
+    setLastSearchQuery(state, action: PayloadAction<string | null>) {
       state.lastSearchQuery = action.payload;
     },
   },

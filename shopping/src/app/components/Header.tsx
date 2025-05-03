@@ -3,11 +3,20 @@ import React, { useState } from "react";
 import CartIcon from "@/assets/cart.svg";
 import SearchIcon from "@/assets/magnify.svg";
 import { useRouter } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "@/redux";
+import { setLastSearchQuery } from "@/redux/filterSlice";
 
 type Props = {};
 
 export default function Header({}: Props) {
-  const [searchQuery, setSearchQuery] = useState("");
+  const lastSearchQuery = useAppSelector(
+    (state) => state.filters.lastSearchQuery
+  );
+  const [searchQuery, setSearchQuery] = useState(
+    lastSearchQuery ? lastSearchQuery : ""
+  );
+
+  const dispatch = useAppDispatch();
 
   const handleKeyDowns = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key == "Enter") {
@@ -16,8 +25,9 @@ export default function Header({}: Props) {
   };
 
   const submitSearch = () => {
-    if (searchQuery.length > 0) {
+    if (searchQuery && searchQuery.length > 0) {
       console.log("Query submitted " + searchQuery);
+      dispatch(setLastSearchQuery(searchQuery));
     } else {
       console.log("Query is empty");
     }
