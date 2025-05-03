@@ -7,7 +7,7 @@ Please find the deployed version of this project at [https://shop247-54124143883
 
 ### Assignment 1: Static HTML Page
 
-This portion of the assignment contains a simple static HTML page. It uses only HTML and CSS, with no JavaScript interactivity.
+This portion of the assignment contains a simple static HTML page. It uses only HTML and CSS, with limited screen size responsivess and JavaScript interactivity.
 
 - Navigate to the `kanban` folder
 - Open the `index.html` file in your browser to view the static page.
