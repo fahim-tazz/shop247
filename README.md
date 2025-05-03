@@ -63,6 +63,9 @@ This is an e-commerce application built with React and Redux.
   - `PlaceOrderButton`: Simulates placing an order. Clears the cart and shows a toast message on success, throws an error if cart is empty, then redirects back to home page.
 
 ---
+### Data Source
+
+The app fetches from `fakestoreapi.com`, then augments it with some randomly-generated `Rating` and `Country of Origin`. This data is cached on the Redux store.
 
 ### State Management
 
