@@ -10,3 +10,16 @@ export const store = configureStore({
     cart: cartReducer,
   },
 });
+
+let saveTimeout: NodeJS.Timeout | null = null;
+store.subscribe(() => {
+  const state = store.getState().cart;
+  if (saveTimeout) clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(() => {
+    try {
+      localStorage.setItem("shop247_cart", JSON.stringify(state));
+    } catch (err) {
+      console.error("Failed to save cart to localStorage", err);
+    }
+  }, 500);
+});
