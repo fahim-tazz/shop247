@@ -50,10 +50,16 @@ export default function ProductGrid({}: Props) {
     <div className="flex-[5] grid [grid-template-columns:repeat(auto-fill,_minmax(10rem,_1fr))] auto-rows-[15rem] gap-y-4 pl-4 pr-0 py-4 ">
       {/* Loading state while fetching */}
       {loadingState && (
-        <>Loading</> //TODO: Style this
+        <div className="text-center w-full text-gray-500 py-6 text-lg">
+          Loading...
+        </div>
       )}
       {/* Fetched, no products found: */}
-      {!loadingState && isEmptyList && <>No products found</>}
+      {!loadingState && isEmptyList && (
+        <div className="text-center text-lg w-full text-gray-500 py-6">
+          No products found
+        </div>
+      )}
 
       {/* Fetched, products found: */}
       {!loadingState &&

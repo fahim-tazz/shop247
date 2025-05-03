@@ -40,7 +40,11 @@ export default function CartPage({}: Props) {
       <div className="w-full md:w-2/3 h-[80vh] overflow-y-auto border-r-1 border-gray-200 p-4">
         <h2 className="text-xl font-semibold mb-4">Your Cart</h2>
         <div className="space-y-4">
-          {Object.keys(cart).length === 0 && <span>No items in cart.</span>}
+          {Object.keys(cart).length === 0 && (
+            <div className="w-full flex justify-center items-center py-8 text-gray-500 text-lg">
+              No items in cart.
+            </div>
+          )}
           {Object.values(cart).map(({ product, quantity }) => (
             <CartProductCard key={product.id} productId={product.id} />
           ))}
