@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import OrderSummary from "./OrderSummary";
 import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "@/redux/cartSlice";
 import { makeMockStore } from "@/test-utils";
 
 describe("OrderSummary", () => {

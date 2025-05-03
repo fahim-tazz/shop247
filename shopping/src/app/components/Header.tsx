@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux";
 import { setLastSearchQuery } from "@/redux/filterSlice";
 
-type Props = {};
+type Props = object;
 
 export default function Header({}: Props) {
   const lastSearchQuery = useAppSelector(

@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { Product } from "../types/product";
 import { useAppSelector } from "@/redux";
 
-type Props = {};
+type Props = object;
 
 export default function ProductGrid({}: Props) {
   const products = useAppSelector((state) => state.products.all);
@@ -18,7 +19,6 @@ export default function ProductGrid({}: Props) {
   useEffect(() => {
     const categoryFilter = filters.category;
     const originFilter = filters.origin;
-    const priceRange = filters.chosenPriceRange;
 
     const isCategoryFilterActive = Object.values(categoryFilter).some((v) => v);
     const isOriginFilterActive = Object.values(originFilter).some((v) => v);

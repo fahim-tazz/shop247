@@ -1,7 +1,7 @@
 import React from "react";
 import CategoricalFilter from "./CategoricalFilter";
 
-type Props = {};
+type Props = object;
 
 export default function FilterBar({}: Props) {
   return (

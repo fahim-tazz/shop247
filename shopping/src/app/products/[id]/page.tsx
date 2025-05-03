@@ -1,10 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { useAppSelector, useAppDispatch } from "@/redux";
 import axios from "axios";
 import { Product } from "@/app/types/product";
-import { setProducts } from "@/redux/productSlice"; // optional cache
 import Image from "next/image";
 import { CartEntry } from "@/app/types/cartEntry";
 import { setCart } from "@/redux/cartSlice";

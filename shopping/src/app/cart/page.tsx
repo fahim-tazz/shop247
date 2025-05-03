@@ -1,20 +1,17 @@
 "use client";
-import { useAppDispatch, useAppSelector } from "@/redux";
-import React, { useState } from "react";
-import { Product } from "../types/product";
+import { useAppSelector } from "@/redux";
+import React from "react";
 import { CartEntry } from "../types/cartEntry";
-import Image from "next/image";
 import CartProductCard from "../components/CartProductCard";
 import OrderSummary from "../components/OrderSummary";
 import ShippingForm from "../components/ShippingForm";
 
-type Props = {};
+type Props = object;
 
 export default function CartPage({}: Props) {
   const cart: Record<number, CartEntry> = useAppSelector(
     (state) => state.cart.products
   );
-  const dispatch = useAppDispatch();
 
   return (
     <div className="flex flex-col md:flex-row gap-6 p-6">
@@ -27,7 +24,7 @@ export default function CartPage({}: Props) {
               No items in cart.
             </div>
           )}
-          {Object.values(cart).map(({ product, quantity }) => (
+          {Object.values(cart).map(({ product }) => (
             <CartProductCard key={product.id} productId={product.id} />
           ))}
         </div>

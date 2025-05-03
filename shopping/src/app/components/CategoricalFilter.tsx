@@ -1,7 +1,7 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/redux";
 import { setCategoryFilter, setOriginFilter } from "@/redux/filterSlice";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 type Props = {
   title: string;

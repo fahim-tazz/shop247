@@ -1,9 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useEffect } from "react";
 import ProductGrid from "./components/ProductGrid";
 import axios from "axios";
 
 import { setError, setProducts } from "@/redux/productSlice";
+
+interface ServerProduct {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+}
 import { useAppDispatch, useAppSelector } from "@/redux";
 import {
   setCategoryFilter,
@@ -26,7 +36,7 @@ export default function Home() {
         .then((response) => {
           let prods = response.data;
           // simulate ratings and country of origin randomly
-          prods = prods.map((prod) => {
+          prods = prods.map((prod: ServerProduct) => {
             const origins = ["China", "Singapore", "Korea", "Hong Kong"];
             const randomOrigin =
               origins[Math.round(Math.random() * (origins.length - 1))];

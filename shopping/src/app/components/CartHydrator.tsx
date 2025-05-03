@@ -1,11 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "@/redux";
+import { useAppDispatch } from "@/redux";
 import { setCart } from "@/redux/cartSlice";
 
 export default function CartHydrator() {
   const dispatch = useAppDispatch();
-  const cart = useAppSelector((state) => state.cart);
 
   useEffect(() => {
     try {

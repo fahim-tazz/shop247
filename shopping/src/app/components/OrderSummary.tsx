@@ -1,7 +1,7 @@
 "use client";
 import { useAppSelector } from "@/redux";
 
-type Props = {};
+type Props = object;
 
 export default function OrderSummary({}: Props) {
   const cart = useAppSelector((state) => state.cart.products);

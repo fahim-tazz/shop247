@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 
-type Props = {};
+type Props = object;
 
 export default function ShippingForm({}: Props) {
   const cart = useAppSelector((state) => state.cart.products);
