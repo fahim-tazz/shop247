@@ -90,7 +90,8 @@ export default function ProductPage() {
   return (
     <div className="flex flex-col md:flex-row gap-8 p-8 m-4 bg-white">
       {/* Image section */}
-      <div className="w-full md:w-[400px] h-[400px] relative border-0 border-gray-200 bg-white rounded">
+      {/* <div className="w-full md:w-[400px] h-[400px] relative border-0 border-gray-200 bg-white rounded"> */}
+      <div className="w-[28rem] h-[28rem] relative bg-white rounded">
         <Image
           src={product.image}
           alt={product.title}

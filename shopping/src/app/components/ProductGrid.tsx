@@ -10,22 +10,7 @@ export default function ProductGrid({}: Props) {
   const loadingState = useAppSelector((state) => state.products.loading);
   const filters = useAppSelector((state) => state.filters);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
-  // const p1: Product = {
-  //   name: "Iphone 14 Pro ",
-  //   // name: "Iphone 14 Pro Iphone 14 Pro Iphone 14 Pro Iphone 14 Pro",
-  //   description: "Latest iphone by apple.",
-  //   id: 0,
-  //   price: 1400,
-  //   image: "An image of iphone",
-  // };
-  // const p2: Product = {
-  //   // name: "Iphone 14 Pro ",
-  //   name: "Iphone 14 Pro Iphone 14 Pro Iphone 14 Pro Iphone 14 Pro",
-  //   description: "Latest iphone by apple.",
-  //   id: 0,
-  //   price: 1400,
-  //   image: "An image of iphone",
-  // };
+
   useEffect(() => {
     const categoryFilter = filters.category;
     const originFilter = filters.origin;
@@ -52,7 +37,7 @@ export default function ProductGrid({}: Props) {
 
   const isEmptyList = filteredProducts.length == 0;
   return (
-    <div className="flex-[5] grid [grid-template-columns:repeat(auto-fill,_minmax(180px,_1fr))] auto-rows-[280px] gap-y-4 pl-4 pr-0 py-4 border-0 border-red-700">
+    <div className="flex-[5] grid [grid-template-columns:repeat(auto-fill,_minmax(10rem,_1fr))] auto-rows-[15rem] gap-y-4 pl-4 pr-0 py-4 ">
       {/* Loading state while fetching */}
       {loadingState && (
         <>Loading</> //TODO: Style this

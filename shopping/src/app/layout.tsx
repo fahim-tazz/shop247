@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Provider store={store}>
-        <body className="flex flex-col w-full h-[80px] bg-gray-100">
+        <body className="flex flex-col w-full bg-gray-100">
           <Toaster position="top-center" reverseOrder={false} />
           <Header />
           {children}

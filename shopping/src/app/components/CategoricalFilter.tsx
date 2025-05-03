@@ -23,16 +23,19 @@ export default function CategoricalFilter({ title, filterKey }: Props) {
     }
   };
   return (
-    <div className=" border-b-[1px] border-gray-400 flex flex-col py-3 px-2 gap-1">
-      <h3 className="text-md text-gray-600 font-semibold">{title}</h3>
-      <div className="grid grid-cols-1 px-1 gap-1.5">
+    <div className=" border-b-[0.07rem] border-gray-400 flex flex-col py-5 px-2 gap-1">
+      <h3 className="text-lg text-gray-600 font-semibold mb-[0.5rem]">
+        {title}
+      </h3>
+      <div className="grid grid-cols-1 px-1 gap-2">
         {Object.entries(attributes)
           .slice(0, 5)
           .map(([name, isChecked]) => (
-            <div className="flex flex-row items-center" key={name}>
+            <div className="flex items-center" key={name}>
               <input
-                className="mr-2 accent-orange-600 scale-120 outline-0"
+                id={`filter-${filterKey}-${name}`}
                 type="checkbox"
+                className="peer hidden"
                 checked={isChecked}
                 onChange={(e) =>
                   setAttributes({
@@ -41,8 +44,11 @@ export default function CategoricalFilter({ title, filterKey }: Props) {
                   })
                 }
               />
-              <label className="text-sm font-semibold text-gray-700 truncate">
-                {name}
+              <label
+                htmlFor={`filter-${filterKey}-${name}`}
+                className="flex items-center bg-gray-200 gap-2 px-2 py-1 border-[0.06rem] border-gray-300 rounded-md text-md font-semibold text-gray-700 cursor-pointer peer-checked:bg-orange-100 peer-checked:border-orange-600"
+              >
+                <span className="truncate">{name}</span>
               </label>
             </div>
           ))}
