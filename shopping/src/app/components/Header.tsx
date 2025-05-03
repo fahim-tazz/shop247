@@ -30,6 +30,7 @@ export default function Header({}: Props) {
       dispatch(setLastSearchQuery(searchQuery));
     } else {
       console.log("Query is empty");
+      dispatch(setLastSearchQuery(null));
     }
   };
 
@@ -45,7 +46,7 @@ export default function Header({}: Props) {
       </div>
       <div className="flex-[7] border-[0.05rem] rounded-sm border-gray-400 h-full bg-white px-4 py-0 pr-0 flex flex-row justify-center items-center">
         <input
-          className="flex-[1] focus:outline-none"
+          className="flex-[1] focus:outline-none text-lg"
           type="text"
           placeholder="What would you like to buy?"
           onKeyDown={handleKeyDowns}

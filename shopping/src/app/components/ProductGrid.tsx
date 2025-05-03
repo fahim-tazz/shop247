@@ -11,6 +11,10 @@ export default function ProductGrid({}: Props) {
   const filters = useAppSelector((state) => state.filters);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
 
+  const lastSearchQuery = useAppSelector(
+    (state) => state.filters.lastSearchQuery
+  );
+
   useEffect(() => {
     const categoryFilter = filters.category;
     const originFilter = filters.origin;
@@ -25,17 +29,23 @@ export default function ProductGrid({}: Props) {
           !isCategoryFilterActive || categoryFilter[product.category];
         const originMatch =
           !isOriginFilterActive || originFilter[product.origin];
-        const priceMatch =
-          product.price >= priceRange[0] && product.price <= priceRange[1];
 
-        return categoryMatch && originMatch && priceMatch;
+        const searchMatch =
+          lastSearchQuery && lastSearchQuery.length > 0
+            ? product.title
+                .toLowerCase()
+                .includes(lastSearchQuery.toLowerCase()) ||
+              product.description
+                .toLowerCase()
+                .includes(lastSearchQuery.toLowerCase())
+            : true;
+        return categoryMatch && originMatch && searchMatch;
       })
     );
-
-    console.log("Filtered products:", filteredProducts);
   }, [products, filters]);
 
   const isEmptyList = filteredProducts.length == 0;
+  console.log(filteredProducts);
   return (
     <div className="flex-[5] grid [grid-template-columns:repeat(auto-fill,_minmax(10rem,_1fr))] auto-rows-[15rem] gap-y-4 pl-4 pr-0 py-4 ">
       {/* Loading state while fetching */}
@@ -48,9 +58,9 @@ export default function ProductGrid({}: Props) {
       {/* Fetched, products found: */}
       {!loadingState &&
         !isEmptyList &&
-        filteredProducts
-          .slice(0, -1)
-          .map((prod) => <ProductCard key={prod.id} product={prod} />)}
+        filteredProducts.map((prod) => (
+          <ProductCard key={prod.id} product={prod} />
+        ))}
     </div>
   );
 }
