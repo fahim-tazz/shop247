@@ -20,7 +20,7 @@ This is an e-commerce application built with React and Redux.
 
 - Navigate to the project directory:
   ```bash
-  cd shopping/shopping
+  cd shop247/shopping
   ```
 - Install dependencies:
   ```bash
