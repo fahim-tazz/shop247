@@ -19,9 +19,12 @@ export default function ShippingForm({}: Props) {
       });
       dispatch(setCart({}));
     } else {
-      toast.error("You have not added any items to the cart. Happy Shopping!", {
-        duration: 2000,
-      });
+      toast.error(
+        "You have not added any items to the cart. Continue Shopping!",
+        {
+          duration: 2000,
+        }
+      );
     }
     setTimeout(() => {
       router.push("/");

@@ -37,14 +37,14 @@ export default function Header({}: Props) {
   const router = useRouter();
 
   return (
-    <div className="w-full border-b-[0.01rem] border-b-gray-300 shadow-sm flex flex-row justify-between items-center px-4 py-3 gap-8 bg-white">
+    <div className="w-full border-b-[0.01rem] border-b-gray-300 shadow-sm flex flex-row justify-between items-center px-4 py-3 gap-8 bg-orange-600">
       <div
         onClick={() => router.push("/")}
-        className="cursor-pointer flex-[1]  h-full flex flex-row justify-center items-center text-2xl font-bold"
+        className="cursor-pointer flex-[1]  h-full flex flex-row justify-center items-center text-2xl font-black text-white tracking-tighter hover:text-orange-50"
       >
-        Shop.ping
+        shop247.sg
       </div>
-      <div className="flex-[7] border-[0.05rem] rounded-sm border-gray-400 h-full bg-white px-4 py-0 pr-0 flex flex-row justify-center items-center">
+      <div className="flex-[7] border-[0.05rem] rounded-3xl border-gray-400 h-full bg-white px-4 pl-6 py-1 my-2 pr-2 flex flex-row justify-center items-center">
         <input
           className="flex-[1] focus:outline-none text-lg"
           type="text"
@@ -62,7 +62,7 @@ export default function Header({}: Props) {
       <div className="flex-[2] h-full flex flex-row items-center justify-start pl-4">
         <CartIcon
           onClick={() => router.push("/cart")}
-          className="h-[3.25rem] w-[3.25rem] text-gray-600 hover:bg-gray-200 transition-all duration-200 rounded-[50%] p-2 pr-0 pl-0 active:scale-95 active:text-gray-700"
+          className="h-[3.25rem] w-[3.25rem] text-white hover:bg-orange-700 transition-all duration-200 rounded-[50%] p-2 pr-0 pl-0 active:scale-95 active:text-orange-200"
         />
       </div>
     </div>
