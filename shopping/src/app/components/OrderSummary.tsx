@@ -1,6 +1,5 @@
 "use client";
 import { useAppSelector } from "@/redux";
-import React, { useState } from "react";
 
 type Props = {};
 
