@@ -44,7 +44,7 @@ export default function Header({}: Props) {
       >
         shop247.sg
       </div>
-      <div className="flex-[7] border-[0.05rem] rounded-3xl border-gray-400 h-full bg-white px-4 pl-6 py-1 my-2 pr-2 flex flex-row justify-center items-center">
+      <div className="flex-[7] border-[0.05rem] rounded-3xl border-gray-300 h-full bg-white px-4 pl-6 py-1 my-2 pr-2 flex flex-row justify-center items-center">
         <input
           className="flex-[1] focus:outline-none text-lg"
           type="text"
